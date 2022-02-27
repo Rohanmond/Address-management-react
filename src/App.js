@@ -70,18 +70,16 @@ function App() {
       {!error ? <Header /> : <ErrorHeader />}
       {!showForm && <InputFormController toggle={toggleShowInputForm} />}
       {!error && showForm && (
-        <FormInput
-          updateData={{}}
-          postData={postData}
-          toggle={toggleShowInputForm}
-          dataItemObj={{ id: null }}
+        <FormInput dataOperations={{ postData }} toggle={toggleShowInputForm} />
+      )}
+      {data.length === 0 ? (
+        <h3>No Address to show</h3>
+      ) : (
+        <AddressList
+          addressData={data}
+          dataOperations={{ deleteData, updateData }}
         />
       )}
-      <AddressList
-        addressData={data}
-        deleteData={deleteData}
-        updateData={updateData}
-      />
     </div>
   );
 }

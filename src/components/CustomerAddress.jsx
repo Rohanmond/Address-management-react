@@ -1,7 +1,8 @@
 import { useState } from "react";
 import FormInput from "./InputForm";
 
-const CustomerAddress = ({ addressItem, deleteData, updateData }) => {
+const CustomerAddress = ({ addressItem, dataOperations }) => {
+  const { deleteData, updateData } = dataOperations;
   const { id, name, mobile, pincode, state, city, address, alternatemobile } =
     addressItem;
   const [showEdit, setShowEdit] = useState(false);
@@ -46,8 +47,7 @@ const CustomerAddress = ({ addressItem, deleteData, updateData }) => {
       ) : (
         <li>
           <FormInput
-            postData={{}}
-            updateData={updateData}
+            dataOperations={{ updateData }}
             toggle={toggleEditForm}
             dataItemObj={addressItem}
           />

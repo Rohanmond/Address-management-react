@@ -5,7 +5,8 @@ import {
   validatePinCode,
   validateOnlyString,
 } from "./InputValidation";
-const FormInput = ({ postData, toggle, dataItemObj, updateData }) => {
+const FormInput = ({ toggle, dataItemObj, dataOperations }) => {
+  const { postData, updateData } = dataOperations;
   const defaultFormObj = {
     name: "",
     mobile: "",
@@ -16,11 +17,11 @@ const FormInput = ({ postData, toggle, dataItemObj, updateData }) => {
     state: "",
   };
   const [formData, setFormData] = useState(
-    dataItemObj.id ? dataItemObj : defaultFormObj
+    dataItemObj ? dataItemObj : defaultFormObj
   );
   const formOnSubmitHandler = (e) => {
     e.preventDefault();
-    if (dataItemObj.id) updateData(formData);
+    if (dataItemObj) updateData(formData);
     else postData(formData);
     setFormData(defaultFormObj);
     toggle();
