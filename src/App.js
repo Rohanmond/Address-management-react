@@ -42,6 +42,18 @@ function App() {
         setData(data.filter((el) => el.id !== id));
       }
     } catch (error) {
+      setError(true);
+      console.error(error);
+    }
+  };
+  const updateData = async (el) => {
+    try {
+      const response = await axios.put(`${DataAPI}/${el.id}`, el);
+      if (response.status === 201 || response.status === 200) {
+        setData(data.map((it) => (it.id === el.id ? el : it)));
+      }
+    } catch (error) {
+      setError(true);
       console.error(error);
     }
   };
@@ -58,13 +70,17 @@ function App() {
       {!error ? <Header /> : <ErrorHeader />}
       {!showForm && <InputFormController toggle={toggleShowInputForm} />}
       {!error && showForm && (
-        <FormInput postData={postData} toggle={toggleShowInputForm} />
+        <FormInput
+          updateData={{}}
+          postData={postData}
+          toggle={toggleShowInputForm}
+          dataItemObj={{ id: null }}
+        />
       )}
       <AddressList
         addressData={data}
         deleteData={deleteData}
-        postData={postData}
-        toggle={toggleShowInputForm}
+        updateData={updateData}
       />
     </div>
   );

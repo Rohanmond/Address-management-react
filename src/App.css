@@ -9,13 +9,14 @@
 }
 
 /* FormInput CSS */
+
 .form-input {
   display: flex;
   flex-direction: column;
-  width: 75vw;
   margin: 0 auto;
   padding: 1rem;
-  margin: 1rem;
+  width: 100%;
+  max-width: 75vw;
   gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: var(--white-color);

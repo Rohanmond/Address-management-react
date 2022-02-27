@@ -1,6 +1,6 @@
 import CustomerAddress from "./CustomerAddress";
 
-const AddressList = ({ addressData, deleteData, postData, toggle }) => {
+const AddressList = ({ addressData, deleteData, updateData }) => {
   return (
     <ul className="list-stacked address-list brd-rd-semi-sq">
       {addressData.map((el) => {
@@ -9,6 +9,7 @@ const AddressList = ({ addressData, deleteData, postData, toggle }) => {
             addressItem={el}
             key={el.id}
             deleteData={deleteData}
+            updateData={updateData}
           />
         );
       })}
