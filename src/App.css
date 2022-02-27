@@ -12,7 +12,7 @@
 .form-input {
   display: flex;
   flex-direction: column;
-  max-width: 60vw;
+  width: 75vw;
   margin: 0 auto;
   padding: 1rem;
   margin: 1rem;
@@ -24,6 +24,7 @@
 .form-row {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .form-column {
   flex-grow: 1;
@@ -57,6 +58,7 @@
 .ph-no-section {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .address-section {
   display: flex;
@@ -66,6 +68,7 @@
 .city-state-section {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .list-stacked-item {
   gap: 0.5rem;
@@ -73,6 +76,7 @@
 .address-footer {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .address-footer button {
   flex-grow: 1;
@@ -93,4 +97,16 @@ input[type="number"]::-webkit-outer-spin-button {
   .address-list {
     max-width: 90vw;
   }
+}
+
+/* FormInputController */
+.controller-container {
+  display: flex;
+  gap: 2rem;
+  width: 75vw;
+  align-items: center;
+  border: 2px solid var(--primary-color);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }

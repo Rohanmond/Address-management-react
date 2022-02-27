@@ -1,5 +1,5 @@
-const CustomerAddress = ({ addressItem }) => {
-  const { name, mobile, pincode, state, city, address, alternatemobile } =
+const CustomerAddress = ({ addressItem, deleteData }) => {
+  const { id, name, mobile, pincode, state, city, address, alternatemobile } =
     addressItem;
   return (
     <li className="list-stacked-item">
@@ -20,7 +20,10 @@ const CustomerAddress = ({ addressItem }) => {
         <button className="btn btn-primary background-success brd-rd-semi-sq">
           Edit
         </button>
-        <button className="btn btn-primary background-danger brd-rd-semi-sq">
+        <button
+          onClick={() => deleteData(id)}
+          className="btn btn-primary background-danger brd-rd-semi-sq"
+        >
           Delete
         </button>
       </div>

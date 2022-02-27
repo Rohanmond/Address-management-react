@@ -5,7 +5,7 @@ import {
   validatePinCode,
   validateOnlyString,
 } from "./InputValidation";
-const FormInput = ({ postData }) => {
+const FormInput = ({ postData, toggle }) => {
   const defaultFormObj = {
     name: "",
     mobile: "",
@@ -36,7 +36,6 @@ const FormInput = ({ postData }) => {
         min: 1000000000,
         max: 9999999999,
       }),
-      state: faker.address.state(),
     });
   };
   const resetFormData = (e) => {
@@ -180,6 +179,14 @@ const FormInput = ({ postData }) => {
             type="button"
             onClick={generateRandomData}
             value="random data"
+          />
+        </div>
+        <div className="form-column">
+          <input
+            className="form-input-field btn btn-primary background-danger"
+            type="button"
+            onClick={toggle}
+            value="cancel"
           />
         </div>
       </div>
