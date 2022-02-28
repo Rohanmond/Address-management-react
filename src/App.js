@@ -18,7 +18,7 @@ function App() {
   const getData = async () => {
     try {
       const response = await axios.get(DataAPI);
-      setData(response.data);
+      setData(response.data.reverse());
     } catch (error) {
       setError(true);
       console.error(error);
@@ -28,7 +28,7 @@ function App() {
     try {
       const response = await axios.post(DataAPI, newData);
       if (response.status === 201 || response.status === 200) {
-        setData(data.concat(response.data));
+        setData([response.data].concat(data));
       }
     } catch (error) {
       setError(true);
